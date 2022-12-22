@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
+import {Routes, Route} from 'react-router-dom'
+import GlobalStyle from './components/GlobalStyles';
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
+import ContactPage from "./pages/ContactPage";
+import NavBar from './components/NavbarComponent/NavBar';
+
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <GlobalStyle>
+      <div className="App">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </div>
+    </GlobalStyle>
   );
 }
 
